@@ -22,6 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     if [ ! -d /vagrant/grack ]
     then
         git clone https://github.com/schacon/grack.git /vagrant/grack
+        su - vagrant -c 'cd /vagrant/grack; bundle install'
     fi
     cp /vagrant/config.ru /vagrant/grack/config.ru
     cp /vagrant/grack.conf /etc/init/grack.conf
